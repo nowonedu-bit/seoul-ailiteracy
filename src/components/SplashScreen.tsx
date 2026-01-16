@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Search, Sparkles } from "lucide-react";
 import logo from "@/assets/logo.png";
+import splashBg from "@/assets/splash-bg.png";
 
 interface SplashScreenProps {
   onStart: (name: string) => void;
@@ -21,7 +22,10 @@ export function SplashScreen({ onStart }: SplashScreenProps) {
   };
 
   return (
-    <div className="min-h-screen gradient-hero flex flex-col items-center justify-center p-6">
+    <div 
+      className="min-h-screen flex flex-col items-center justify-center p-6 bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: `url(${splashBg})` }}
+    >
       {/* Floating decorations */}
       <div className="absolute top-10 left-10 animate-float">
         <Sparkles className="w-8 h-8 text-sunshine-dark opacity-60" />
