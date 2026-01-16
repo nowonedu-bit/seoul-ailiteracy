@@ -39,8 +39,9 @@ export function Certificate({ detectiveName, aiPromise, onReset }: CertificatePr
   });
 
   return (
-    <div className="min-h-screen gradient-hero flex flex-col items-center justify-center p-4">
-      <img src={logo} alt="AI 탐정단" className="h-16 md:h-20 mb-6" />
+    <div className="min-h-screen gradient-hero flex flex-col p-4">
+      <img src={logo} alt="AI 탐정단" className="h-12 md:h-14 mb-6" />
+      <div className="flex-1 flex flex-col items-center justify-center">
       {/* Certificate */}
       <div
         ref={certificateRef}
@@ -124,6 +125,7 @@ export function Certificate({ detectiveName, aiPromise, onReset }: CertificatePr
         🎉 축하해요! AI의 좋은 점과 위험한 점을 모두 알게 되었어요!<br />
         앞으로도 AI를 현명하게 사용하는 멋진 탐정이 되세요! 🕵️
       </p>
+      </div>
     </div>
   );
 }

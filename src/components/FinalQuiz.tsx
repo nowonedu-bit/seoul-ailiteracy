@@ -76,49 +76,52 @@ export function FinalQuiz({ onComplete, onBack, onGoHome }: FinalQuizProps) {
 
   if (quizComplete) {
     return (
-      <div className="min-h-screen gradient-hero flex flex-col items-center justify-center p-4">
-        <img src={logo} alt="AI 탐정단" className="h-16 md:h-20 mb-6" />
-        <div className={`card-detective max-w-lg w-full animate-scale-in ${isShaking ? "shake" : ""}`}>
-          <div className="w-24 h-24 mx-auto mb-4 bg-sunshine rounded-full flex items-center justify-center">
-            <Trophy className="w-12 h-12 text-foreground" />
-          </div>
+      <div className="min-h-screen gradient-hero flex flex-col p-4">
+        <img src={logo} alt="AI 탐정단" className="h-12 md:h-14 mb-6" />
+        <div className="flex-1 flex items-center justify-center">
+          <div className={`card-detective max-w-lg w-full animate-scale-in ${isShaking ? "shake" : ""}`}>
+            <div className="w-24 h-24 mx-auto mb-4 bg-sunshine rounded-full flex items-center justify-center">
+              <Trophy className="w-12 h-12 text-foreground" />
+            </div>
 
-          <h2 className="font-display text-2xl text-center text-foreground mb-2">
-            최종 퀴즈 완료! 🎉
-          </h2>
+            <h2 className="font-display text-2xl text-center text-foreground mb-2">
+              최종 퀴즈 완료! 🎉
+            </h2>
 
-          <p className="text-center text-muted-foreground mb-6">
-            {score}/{finalQuizQuestions.length} 문제를 맞혔어요!
-          </p>
-
-          <div className="bg-sky/20 rounded-2xl p-4 mb-6">
-            <p className="text-center font-medium text-sky-dark mb-3">
-              ✍️ 나의 AI 약속을 적어주세요!
+            <p className="text-center text-muted-foreground mb-6">
+              {score}/{finalQuizQuestions.length} 문제를 맞혔어요!
             </p>
-            <textarea
-              value={promise}
-              onChange={(e) => setPromise(e.target.value)}
-              placeholder="예: AI를 사용할 때 항상 출처를 확인할게요!"
-              className="w-full p-4 rounded-xl border-2 border-border bg-card text-foreground resize-none focus:outline-none focus:border-sky"
-              rows={3}
-              maxLength={100}
-            />
-          </div>
 
-          <button
-            onClick={handleSubmitPromise}
-            className="btn-sunshine w-full text-xl"
-          >
-            🏆 인증서 받기!
-          </button>
+            <div className="bg-sky/20 rounded-2xl p-4 mb-6">
+              <p className="text-center font-medium text-sky-dark mb-3">
+                ✍️ 나의 AI 약속을 적어주세요!
+              </p>
+              <textarea
+                value={promise}
+                onChange={(e) => setPromise(e.target.value)}
+                placeholder="예: AI를 사용할 때 항상 출처를 확인할게요!"
+                className="w-full p-4 rounded-xl border-2 border-border bg-card text-foreground resize-none focus:outline-none focus:border-sky"
+                rows={3}
+                maxLength={100}
+              />
+            </div>
+
+            <button
+              onClick={handleSubmitPromise}
+              className="btn-sunshine w-full text-xl"
+            >
+              🏆 인증서 받기!
+            </button>
+          </div>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen gradient-hero flex flex-col items-center justify-center p-4">
-      <img src={logo} alt="AI 탐정단" className="h-16 md:h-20 mb-6" />
+    <div className="min-h-screen gradient-hero flex flex-col p-4">
+      <img src={logo} alt="AI 탐정단" className="h-12 md:h-14 mb-6" />
+      <div className="flex-1 flex items-center justify-center">
       <div className={`card-detective max-w-lg w-full animate-fade-in ${isShaking ? "shake" : ""}`}>
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
@@ -223,6 +226,7 @@ export function FinalQuiz({ onComplete, onBack, onGoHome }: FinalQuizProps) {
             )}
           </button>
         )}
+      </div>
       </div>
     </div>
   );
