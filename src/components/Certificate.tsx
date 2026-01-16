@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { Download, RotateCcw, Award, Star } from "lucide-react";
+import { Download, RotateCcw, Star } from "lucide-react";
 import html2canvas from "html2canvas";
 import { locations } from "@/data/quizData";
 import logo from "@/assets/logo.png";
@@ -57,16 +57,12 @@ export function Certificate({ detectiveName, aiPromise, onReset }: CertificatePr
         </div>
 
         {/* Title */}
-        <div className="text-center mb-6">
+        <div className="text-center mb-4">
           <h1 className="font-display text-3xl text-foreground mb-1">
             🏆 일등 탐정 인증서 🏆
           </h1>
-          <p className="text-sky-dark font-medium">AI 탐정단 - 두 얼굴의 도시를 구해라!</p>
-        </div>
-
-        {/* Award icon */}
-        <div className="w-20 h-20 mx-auto mb-4 bg-sunshine rounded-full flex items-center justify-center">
-          <Award className="w-10 h-10 text-foreground" />
+          <p className="text-sky-dark font-medium mb-3">AI 탐정단 - 두 얼굴의 도시를 구해라!</p>
+          <img src={logo} alt="AI 탐정단" className="h-12 mx-auto" />
         </div>
 
         {/* Name */}
@@ -128,9 +124,6 @@ export function Certificate({ detectiveName, aiPromise, onReset }: CertificatePr
         🎉 축하해요! AI의 좋은 점과 위험한 점을 모두 알게 되었어요!<br />
         앞으로도 AI를 현명하게 사용하는 멋진 탐정이 되세요! 🕵️
       </p>
-
-      {/* Logo at bottom */}
-      <img src={logo} alt="AI 탐정단" className="h-14 md:h-16 object-contain mt-6" />
       </div>
     </div>
   );
