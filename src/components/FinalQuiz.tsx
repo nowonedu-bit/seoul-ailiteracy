@@ -91,7 +91,7 @@ export function FinalQuiz({ onComplete, onBack, onGoHome }: FinalQuizProps) {
             </p>
 
             <div className="bg-sky/20 rounded-2xl p-4 mb-6">
-              <p className="text-center font-medium text-sky-dark mb-3">✍️ 나의 AI 약속을 적어주세요!</p>
+              <p className="text-center font-medium text-sky-dark mb-3">✍️ 나의 AI 사용 약속을 적어주세요!</p>
               <textarea
                 value={promise}
                 onChange={(e) => setPromise(e.target.value)}
