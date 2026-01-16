@@ -3,6 +3,7 @@ import { Download, RotateCcw, Award, Star } from "lucide-react";
 import html2canvas from "html2canvas";
 import { locations } from "@/data/quizData";
 import logo from "@/assets/logo.png";
+import { BadgeIcon } from "./BadgeIcon";
 
 interface CertificateProps {
   detectiveName: string;
@@ -80,11 +81,13 @@ export function Certificate({ detectiveName, aiPromise, onReset }: CertificatePr
         {/* Badges */}
         <div className="bg-white/60 rounded-2xl p-4 mb-4">
           <p className="text-sm text-muted-foreground text-center mb-2">획득한 배지</p>
-          <div className="flex justify-center gap-2 flex-wrap">
+          <div className="flex justify-center gap-3 flex-wrap">
             {locations.map((location) => (
-              <span key={location.id} className="text-2xl" title={location.name}>
-                {location.badgeEmoji}
-              </span>
+              <BadgeIcon
+                key={location.id}
+                locationId={location.id}
+                size="md"
+              />
             ))}
           </div>
         </div>
@@ -125,6 +128,9 @@ export function Certificate({ detectiveName, aiPromise, onReset }: CertificatePr
         🎉 축하해요! AI의 좋은 점과 위험한 점을 모두 알게 되었어요!<br />
         앞으로도 AI를 현명하게 사용하는 멋진 탐정이 되세요! 🕵️
       </p>
+
+      {/* Logo at bottom */}
+      <img src={logo} alt="AI 탐정단" className="h-14 md:h-16 object-contain mt-6" />
       </div>
     </div>
   );
