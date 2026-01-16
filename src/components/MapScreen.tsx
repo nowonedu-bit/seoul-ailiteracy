@@ -54,8 +54,7 @@ export function MapScreen({
                 >
                   {isSolved ? (
                     <BadgeIcon 
-                      row={location.badgePosition.row} 
-                      col={location.badgePosition.col} 
+                      locationId={location.id}
                       size="sm"
                     />
                   ) : (
@@ -91,11 +90,7 @@ export function MapScreen({
               >
                 <div className={`location-marker ${isSolved ? "solved" : "unsolved"} ${isSolved ? "" : location.bgColor}`}>
                   {isSolved ? (
-                    <BadgeIcon 
-                      row={location.badgePosition.row} 
-                      col={location.badgePosition.col} 
-                      size="md"
-                    />
+                    <span className="text-3xl">{location.badgeEmoji}</span>
                   ) : (
                     <IconComponent className="w-8 h-8 text-white" />
                   )}
