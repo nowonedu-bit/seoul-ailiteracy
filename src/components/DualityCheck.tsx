@@ -25,10 +25,6 @@ export function DualityCheck({ location, onComplete }: DualityCheckProps) {
     setBadChecked(true);
   };
 
-  // 이로움/해로움 설명 텍스트 (퀴즈 explanation 기반)
-  const goodExplanation = location.goodQuiz.explanation;
-  const badExplanation = location.badQuiz.explanation;
-
   return (
     <div className="animate-fade-in">
       <div className="text-center mb-6">
@@ -36,7 +32,7 @@ export function DualityCheck({ location, onComplete }: DualityCheckProps) {
           🤔 잠깐! 먼저 생각해볼까요?
         </h3>
         <p className="text-muted-foreground text-sm">
-          <span className="text-foreground font-semibold">{location.aiType}</span>의 두 얼굴을 확인하세요!
+          <span className="text-foreground font-semibold">{location.aiType}</span>의 두 얼굴을 생각해보세요!
         </p>
       </div>
 
@@ -84,27 +80,31 @@ export function DualityCheck({ location, onComplete }: DualityCheckProps) {
         </button>
       </div>
 
-      {/* 이로움 내용 */}
+      {/* 이로움 질문 */}
       {showGoodContent && (
         <div className="bg-mint/10 border-2 border-mint/30 rounded-2xl p-4 mb-3 animate-fade-in">
           <div className="flex items-start gap-2">
             <Lightbulb className="w-5 h-5 text-mint flex-shrink-0 mt-0.5" />
             <div>
-              <p className="font-bold text-mint text-sm mb-1">이 기술 덕분에 편리해지는 점!</p>
-              <p className="text-sm text-foreground leading-relaxed">{goodExplanation}</p>
+              <p className="font-bold text-mint text-sm mb-1">생각해보세요! 🤔</p>
+              <p className="text-sm text-foreground leading-relaxed">
+                이 기술 덕분에 우리가 <span className="font-semibold text-mint">편리해지는 점</span>은 무엇일까요?
+              </p>
             </div>
           </div>
         </div>
       )}
 
-      {/* 해로움 내용 */}
+      {/* 해로움 질문 */}
       {showBadContent && (
         <div className="bg-coral/10 border-2 border-coral/30 rounded-2xl p-4 mb-3 animate-fade-in">
           <div className="flex items-start gap-2">
             <AlertTriangle className="w-5 h-5 text-coral flex-shrink-0 mt-0.5" />
             <div>
-              <p className="font-bold text-coral text-sm mb-1">조심해야 할 점!</p>
-              <p className="text-sm text-foreground leading-relaxed">{badExplanation}</p>
+              <p className="font-bold text-coral text-sm mb-1">생각해보세요! 🤔</p>
+              <p className="text-sm text-foreground leading-relaxed">
+                이 기술 때문에 누군가 <span className="font-semibold text-coral">피해를 보거나 생각이 좁아질 수 있을까요?</span>
+              </p>
             </div>
           </div>
         </div>
@@ -115,7 +115,7 @@ export function DualityCheck({ location, onComplete }: DualityCheckProps) {
         <div className="animate-fade-in">
           <div className="bg-sunshine/20 rounded-2xl p-3 mb-4 text-center">
             <p className="text-sm text-sunshine-dark font-medium">
-              ✨ 훌륭해요! 이제 두 가지 면을 모두 확인했어요!
+              ✨ 좋아요! 이제 퀴즈로 확인해볼까요?
             </p>
           </div>
           <button
@@ -128,9 +128,9 @@ export function DualityCheck({ location, onComplete }: DualityCheckProps) {
       ) : (
         <div className="bg-muted rounded-2xl p-3 text-center">
           <p className="text-sm text-muted-foreground">
-            {!goodChecked && !badChecked && "💡 이로움과 ⚠️ 해로움 둘 다 확인해주세요!"}
-            {goodChecked && !badChecked && "⚠️ 해로움도 확인해주세요!"}
-            {!goodChecked && badChecked && "💡 이로움도 확인해주세요!"}
+            {!goodChecked && !badChecked && "💡 이로움과 ⚠️ 해로움 둘 다 생각해주세요!"}
+            {goodChecked && !badChecked && "⚠️ 해로움도 생각해주세요!"}
+            {!goodChecked && badChecked && "💡 이로움도 생각해주세요!"}
           </p>
         </div>
       )}
