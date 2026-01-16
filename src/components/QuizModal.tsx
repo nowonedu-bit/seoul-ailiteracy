@@ -5,11 +5,12 @@ import { ArrowRight, CheckCircle, XCircle, Sparkles } from "lucide-react";
 import confetti from "canvas-confetti";
 import { LocationIcon } from "./LocationIcon";
 import { BadgeIcon } from "./BadgeIcon";
+import { DualityCheck } from "./DualityCheck";
 import logo from "@/assets/logo.png";
 
 interface QuizModalProps {
   locationId: string;
-  quizStep: "intro" | "good" | "bad" | "success";
+  quizStep: "intro" | "duality" | "good" | "bad" | "success";
   onAdvance: () => void;
   onComplete: () => void;
   onBack: () => void;
@@ -114,6 +115,21 @@ export function QuizModal({
               시작! <ArrowRight className="w-5 h-5" />
             </button>
           </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (quizStep === "duality") {
+    return (
+      <div className="fixed inset-0 bg-foreground/50 backdrop-blur-sm flex flex-col items-center justify-center p-4 z-50">
+        <img src={logo} alt="AI 탐정단" className="h-16 md:h-20 object-contain mb-4" />
+        <div className="card-detective max-w-lg w-full animate-scale-in">
+          <div className="w-24 h-24 mx-auto mb-4 flex items-center justify-center">
+            <LocationIcon locationId={location.id} size="lg" className="w-20 h-20" />
+          </div>
+          
+          <DualityCheck location={location} onComplete={onAdvance} />
         </div>
       </div>
     );
