@@ -1,8 +1,16 @@
-import type { Config } from "tailwindcss";
+// NOTE: We intentionally avoid `satisfies Config` here.
+// Lovable's typecheck step can hit an internal stack overflow when validating
+// large Tailwind config objects against Tailwind's deep `Config` type.
+// The runtime build (Vite/Tailwind) does not require this type-level validation.
 
 export default {
   darkMode: ["class"],
-  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -14,8 +22,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Noto Sans KR', 'sans-serif'],
-        display: ['Jua', 'sans-serif'],
+        sans: ["Noto Sans KR", "sans-serif"],
+        display: ["Jua", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -83,10 +91,10 @@ export default {
         "4xl": "2rem",
       },
       boxShadow: {
-        'soft': 'var(--shadow-soft)',
-        'button': 'var(--shadow-button)',
-        'button-sky': 'var(--shadow-button-sky)',
-        'card': 'var(--shadow-card)',
+        soft: "var(--shadow-soft)",
+        button: "var(--shadow-button)",
+        "button-sky": "var(--shadow-button-sky)",
+        card: "var(--shadow-card)",
       },
       keyframes: {
         "accordion-down": {
@@ -121,4 +129,4 @@ export default {
     },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config;
+};
