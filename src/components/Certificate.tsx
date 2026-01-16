@@ -40,7 +40,7 @@ export function Certificate({ detectiveName, aiPromise, onReset }: CertificatePr
 
   return (
     <div className="min-h-screen gradient-hero flex flex-col p-4">
-      <img src={logo} alt="AI 탐정단" className="h-12 md:h-14 mb-6" />
+      <img src={logo} alt="AI 탐정단" className="h-12 md:h-14 object-contain mb-6" />
       <div className="flex-1 flex flex-col items-center justify-center">
       {/* Certificate */}
       <div
