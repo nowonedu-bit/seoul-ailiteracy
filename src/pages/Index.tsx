@@ -37,7 +37,7 @@ const Index = () => {
   }
 
   if (gameState.currentScreen === "final") {
-    return <FinalQuiz onComplete={handleFinalComplete} onBack={goToMap} />;
+    return <FinalQuiz onComplete={handleFinalComplete} onBack={goToMap} onGoHome={resetGame} />;
   }
 
   if (gameState.currentScreen === "certificate") {
@@ -58,6 +58,7 @@ const Index = () => {
         solvedLocations={gameState.solvedLocations}
         onSelectLocation={selectLocation}
         onGoToFinal={goToFinal}
+        onGoHome={resetGame}
         allSolved={allLocationsSolved}
       />
       

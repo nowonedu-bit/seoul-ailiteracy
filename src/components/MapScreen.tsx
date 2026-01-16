@@ -1,11 +1,12 @@
 import { locations } from "@/data/quizData";
-import { Award, Star } from "lucide-react";
+import { Award, Star, Home } from "lucide-react";
 
 interface MapScreenProps {
   detectiveName: string;
   solvedLocations: string[];
   onSelectLocation: (locationId: string) => void;
   onGoToFinal: () => void;
+  onGoHome: () => void;
   allSolved: boolean;
 }
 
@@ -14,6 +15,7 @@ export function MapScreen({
   solvedLocations,
   onSelectLocation,
   onGoToFinal,
+  onGoHome,
   allSolved
 }: MapScreenProps) {
   return (
@@ -119,9 +121,16 @@ export function MapScreen({
       )}
 
       <div className="max-w-4xl mx-auto px-4 pb-8">
-        <p className="text-center text-muted-foreground text-sm">
+        <p className="text-center text-muted-foreground text-sm mb-4">
           반짝이는 장소를 클릭해서 사건을 해결하세요! ✨
         </p>
+        <button
+          onClick={onGoHome}
+          className="mx-auto flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-sm"
+        >
+          <Home className="w-4 h-4" />
+          처음으로 돌아가기
+        </button>
       </div>
     </div>
   );
