@@ -1,5 +1,4 @@
-import { LucideIcon } from "lucide-react";
-import { School, Home, Palmtree, BookOpen, Utensils, Trophy } from "lucide-react";
+import { LucideIcon, School, Home, Palmtree, BookOpen, Utensils, Trophy } from "lucide-react";
 
 export interface QuizQuestion {
   question: string;
