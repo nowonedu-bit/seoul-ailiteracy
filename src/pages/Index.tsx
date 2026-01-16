@@ -60,12 +60,14 @@ const Index = () => {
         onGoToFinal={goToFinal}
         onGoHome={resetGame}
         allSolved={allLocationsSolved}
+        goodCollected={gameState.goodCollected}
+        badCollected={gameState.badCollected}
       />
       
       {gameState.currentScreen === "quiz" && gameState.currentLocationId && (
         <QuizModal
           locationId={gameState.currentLocationId}
-          quizStep={gameState.quizStep}
+          quizStep={gameState.quizStep as "intro" | "duality" | "good" | "bad" | "success"}
           onAdvance={advanceQuizStep}
           onComplete={completeLocation}
           onBack={goToMap}

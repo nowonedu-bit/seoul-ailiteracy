@@ -119,11 +119,36 @@ export function Certificate({ detectiveName, aiPromise, onReset }: CertificatePr
         </button>
       </div>
 
-      {/* Congratulations message */}
-      <p className="mt-6 text-center text-foreground/80 max-w-md">
-        🎉 축하해요! AI의 좋은 점과 위험한 점을 모두 알게 되었어요!<br />
-        앞으로도 AI를 현명하게 사용하는 멋진 탐정이 되세요! 🕵️
-      </p>
+      {/* 비판적 피드백 리포트 */}
+      <div className="mt-6 max-w-lg w-full bg-card/90 backdrop-blur-sm rounded-2xl p-5 shadow-lg">
+        <h3 className="font-display text-lg text-center text-foreground mb-3">
+          📋 {detectiveName} 탐정님의 성찰 리포트
+        </h3>
+        
+        <div className="space-y-3">
+          <div className="bg-mint/10 border border-mint/30 rounded-xl p-3">
+            <p className="text-sm text-foreground leading-relaxed">
+              <span className="font-bold text-mint">💡 이로움 탐색:</span> {detectiveName} 탐정님은 AI가 우리 생활을 
+              <span className="font-semibold text-mint"> 편리하게 만들어주는 점</span>을 아주 잘 찾아냈어요! 
+              번역, 추천, 학습 도우미 등 다양한 AI의 도움을 이해했어요.
+            </p>
+          </div>
+          
+          <div className="bg-coral/10 border border-coral/30 rounded-xl p-3">
+            <p className="text-sm text-foreground leading-relaxed">
+              <span className="font-bold text-coral">⚠️ 해로움 탐색:</span> 특히 <span className="font-semibold text-coral">저작권 침해, 개인정보 유출, 
+              생각의 편식</span> 같은 위험한 점도 꼼꼼하게 살피는 모습이 인상적이었어요!
+            </p>
+          </div>
+          
+          <div className="bg-sunshine/20 rounded-xl p-3 text-center">
+            <p className="text-sm text-foreground leading-relaxed font-medium">
+              ✨ 앞으로도 AI를 만날 때마다 <span className="text-sunshine-dark font-bold">두 가지 면을 모두 살펴보는</span> 
+              멋진 비판적 사고를 가진 어린이가 되어봐요!
+            </p>
+          </div>
+        </div>
+      </div>
       </div>
     </div>
   );

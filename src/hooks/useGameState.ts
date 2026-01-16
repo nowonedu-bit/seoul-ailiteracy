@@ -5,8 +5,11 @@ interface GameState {
   solvedLocations: string[];
   currentScreen: "splash" | "map" | "quiz" | "final" | "certificate";
   currentLocationId: string | null;
-  quizStep: "intro" | "good" | "bad" | "success";
+  quizStep: "intro" | "duality" | "good" | "bad" | "success";
   aiPromise: string;
+  // 수집 카운트
+  goodCollected: number;
+  badCollected: number;
 }
 
 const STORAGE_KEY = "ai-detective-game";
@@ -16,7 +19,12 @@ export function useGameState() {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
       try {
-        return JSON.parse(saved);
+        const parsed = JSON.parse(saved);
+        // 새로운 필드가 없으면 기본값 추가
+        return {
+          ...getInitialState(),
+          ...parsed,
+        };
       } catch {
         return getInitialState();
       }
@@ -35,7 +43,9 @@ export function useGameState() {
       currentScreen: "splash",
       currentLocationId: null,
       quizStep: "intro",
-      aiPromise: ""
+      aiPromise: "",
+      goodCollected: 0,
+      badCollected: 0
     };
   }
 
@@ -58,10 +68,21 @@ export function useGameState() {
 
   const advanceQuizStep = () => {
     setGameState(prev => {
-      const steps: GameState["quizStep"][] = ["intro", "good", "bad", "success"];
+      const steps: GameState["quizStep"][] = ["intro", "duality", "good", "bad", "success"];
       const currentIndex = steps.indexOf(prev.quizStep);
       const nextStep = steps[Math.min(currentIndex + 1, steps.length - 1)];
-      return { ...prev, quizStep: nextStep };
+      
+      // 수집 카운트 증가
+      let goodCollected = prev.goodCollected;
+      let badCollected = prev.badCollected;
+      
+      if (prev.quizStep === "good") {
+        goodCollected = prev.goodCollected + 1;
+      } else if (prev.quizStep === "bad") {
+        badCollected = prev.badCollected + 1;
+      }
+      
+      return { ...prev, quizStep: nextStep, goodCollected, badCollected };
     });
   };
 
