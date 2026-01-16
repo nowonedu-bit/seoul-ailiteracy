@@ -69,8 +69,8 @@ export function SplashScreen({ onStart }: SplashScreenProps) {
 
       {/* Footer */}
       <p className="mt-8 text-sm text-foreground/60">
-        본 자료는 학교 수업 목적으로만 활용 가능하며, 무단 복제 및 외부 유출시 저작권법에 저촉될 수 있습니다. 생성형 AI
-        를 활용하여 만든 이미지를 사용하였습니다.
+        본 자료는 학교 수업 목적으로만 활용 가능하며, 무단 복제 및 외부 유출시 저작권법에 저촉될 수 있습니다. <br />
+        생성형 AI를 활용하여 만든 이미지를 사용하였습니다.
       </p>
     </div>
   );
