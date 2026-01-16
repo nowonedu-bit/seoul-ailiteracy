@@ -22,8 +22,8 @@ export function MapScreen({
   return (
     <div className="min-h-screen gradient-map">
       <header className="bg-card/90 backdrop-blur-sm shadow-soft p-4">
-        <div className="max-w-4xl mx-auto flex flex-col items-center gap-3">
-          <img src={logo} alt="AI 탐정단" className="h-16 md:h-20" />
+        <div className="max-w-4xl mx-auto flex items-center justify-between">
+          <img src={logo} alt="AI 탐정단" className="h-12 md:h-14" />
           <div className="flex items-center gap-4">
             <span className="font-display text-base text-foreground">
               🔍 <span className="text-sky-dark">{detectiveName}</span> 탐정님
