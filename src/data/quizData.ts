@@ -195,7 +195,7 @@ export const locations: Location[] = [
     },
     badgeEmoji: "🍽️",
     badgePosition: { row: 1, col: 1 },
-    position: { x: 88, y: 40 },
+    position: { x: 82, y: 40 },
     bgColor: "bg-sunshine",
   },
   {

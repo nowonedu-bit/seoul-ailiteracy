@@ -92,8 +92,8 @@ export function MapScreen({
                   {isSolved ? (
                     <BadgeIcon locationId={location.id} size="lg" />
                   ) : (
-                    <div className="w-20 h-20 rounded-full bg-white/90 shadow-lg flex items-center justify-center border-4 border-sunshine">
-                      <LocationIcon locationId={location.id} size="md" className="scale-110" />
+                    <div className="w-24 h-24 rounded-full bg-white/90 shadow-lg flex items-center justify-center border-4 border-sunshine">
+                      <LocationIcon locationId={location.id} size="lg" />
                     </div>
                   )}
                 </div>

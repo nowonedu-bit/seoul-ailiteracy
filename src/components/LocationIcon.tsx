@@ -22,9 +22,9 @@ interface LocationIconProps {
 
 export function LocationIcon({ locationId, size = "md", className = "" }: LocationIconProps) {
   const sizeClasses = {
-    sm: "w-12 h-12",
-    md: "w-16 h-16",
-    lg: "w-20 h-20",
+    sm: "w-14 h-14",
+    md: "w-20 h-20",
+    lg: "w-24 h-24",
   };
 
   const locationImage = locationImages[locationId];

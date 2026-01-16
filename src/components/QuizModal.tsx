@@ -76,8 +76,8 @@ export function QuizModal({
     return (
       <div className="fixed inset-0 bg-foreground/50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
         <div className="card-detective max-w-lg w-full animate-scale-in">
-          <div className="w-24 h-24 mx-auto mb-4 flex items-center justify-center">
-            <LocationIcon locationId={location.id} size="lg" />
+          <div className="w-32 h-32 mx-auto mb-4 flex items-center justify-center">
+            <LocationIcon locationId={location.id} size="lg" className="w-28 h-28" />
           </div>
           
           <h2 className="font-display text-2xl text-center text-foreground mb-2">
