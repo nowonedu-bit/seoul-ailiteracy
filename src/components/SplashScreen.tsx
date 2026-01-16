@@ -36,39 +36,32 @@ export function SplashScreen({ onStart }: SplashScreenProps) {
       {/* Main content */}
       <div className="card-detective max-w-md w-full text-center animate-scale-in">
         {/* Logo */}
-        <img 
-          src={logo} 
-          alt="AI 탐정단 - 두 얼굴의 도시를 구해라!" 
-          className="w-80 md:w-96 mx-auto mb-8"
-        />
+        <img src={logo} alt="AI 탐정단 - 두 얼굴의 도시를 구해라!" className="w-80 md:w-96 mx-auto mb-8" />
 
         {/* Description */}
         <p className="text-muted-foreground mb-8 leading-relaxed">
-          AI의 좋은 점과 위험한 점을 찾아<br />
-          6개의 사건을 해결하고<br />
+          AI의 좋은 점과 위험한 점을 찾아
+          <br />
+          6개의 사건을 해결하고
+          <br />
           <span className="text-foreground font-semibold">일등 탐정</span>이 되어보세요!
         </p>
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-foreground mb-2">
-              멋진 탐정의 이름을 입력해줘! ✨
-            </label>
+            <label className="block text-sm font-medium text-foreground mb-2">멋진 탐정의 이름을 입력해줘! ✨</label>
             <input
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="예: 똑똑이, 용감이"
+              placeholder="예: AI 탐정, AI 윤리 지킴이"
               className={`w-full px-4 py-3 rounded-2xl border-2 border-border bg-background text-foreground text-center text-lg font-medium focus:outline-none focus:border-sunshine transition-colors ${isShaking ? "shake" : ""}`}
               maxLength={10}
             />
           </div>
 
-          <button
-            type="submit"
-            className="btn-sunshine w-full text-xl"
-          >
+          <button type="submit" className="btn-sunshine w-full text-xl">
             🕵️ 탐정 시작하기!
           </button>
         </form>
@@ -76,7 +69,8 @@ export function SplashScreen({ onStart }: SplashScreenProps) {
 
       {/* Footer */}
       <p className="mt-8 text-sm text-foreground/60">
-        초등학교 3학년 AI 리터러시 교육
+        본 자료는 학교 수업 목적으로만 활용 가능하며, 무단 복제 및 외부 유출시 저작권법에 저촉될 수 있습니다. 생성형 AI
+        를 활용하여 만든 이미지를 사용하였습니다.
       </p>
     </div>
   );
