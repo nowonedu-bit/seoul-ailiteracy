@@ -181,9 +181,14 @@ export function FinalQuiz({ onComplete, onBack }: FinalQuizProps) {
         {/* Result message */}
         {showResult && (
           <div className={`p-4 rounded-2xl mb-4 ${isCorrect ? "bg-mint/20" : "bg-destructive/20"}`}>
-            <p className={`text-center font-bold ${isCorrect ? "text-mint" : "text-destructive"}`}>
+            <p className={`text-center font-bold mb-2 ${isCorrect ? "text-mint" : "text-destructive"}`}>
               {isCorrect ? "🎉 정답이에요!" : "😅 아쉬워요! 다시 도전해볼까요?"}
             </p>
+            {isCorrect && question.explanation && (
+              <p className="text-sm text-center text-muted-foreground mt-2 leading-relaxed">
+                💡 {question.explanation}
+              </p>
+            )}
           </div>
         )}
 
