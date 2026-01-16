@@ -79,7 +79,7 @@ export function FinalQuiz({ onComplete, onBack, onGoHome }: FinalQuizProps) {
       <div className="min-h-screen gradient-hero flex flex-col p-4">
         <img src={logo} alt="AI 탐정단" className="h-16 md:h-20 object-contain mt-4 mb-4" />
         <div className="flex-1 flex items-center justify-center">
-          <div className={`card-detective max-w-lg w-full animate-scale-in ${isShaking ? "shake" : ""}`}>
+          <div className={`card-detective max-w-2xl w-full animate-scale-in ${isShaking ? "shake" : ""}`}>
             <div className="w-24 h-24 mx-auto mb-4 bg-sunshine rounded-full flex items-center justify-center">
               <Trophy className="w-12 h-12 text-foreground" />
             </div>
@@ -115,7 +115,7 @@ export function FinalQuiz({ onComplete, onBack, onGoHome }: FinalQuizProps) {
     <div className="min-h-screen gradient-hero flex flex-col p-4">
       <img src={logo} alt="AI 탐정단" className="h-16 md:h-20 object-contain mt-4 mb-4" />
       <div className="flex-1 flex items-center justify-center">
-        <div className={`card-detective max-w-lg w-full animate-fade-in ${isShaking ? "shake" : ""}`}>
+        <div className={`card-detective max-w-2xl w-full animate-fade-in ${isShaking ? "shake" : ""}`}>
           {/* Header */}
           <div className="flex items-center justify-between mb-6">
             <button onClick={onBack} className="text-muted-foreground hover:text-foreground transition-colors">
