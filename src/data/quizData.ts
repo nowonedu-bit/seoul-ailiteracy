@@ -1,3 +1,4 @@
+import { LucideIcon } from "lucide-react";
 import { School, Home, Palmtree, BookOpen, Utensils, Trophy } from "lucide-react";
 
 export interface QuizQuestion {
@@ -9,7 +10,7 @@ export interface QuizQuestion {
 export interface Location {
   id: string;
   name: string;
-  icon: typeof School;
+  icon: LucideIcon;
   aiType: string;
   aiDescription: string;
   goodQuiz: QuizQuestion;

@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { locations, Location } from "@/data/quizData";
+import { locations } from "@/data/quizData";
+import type { Location } from "@/data/quizData";
 import { ArrowRight, CheckCircle, XCircle, Sparkles } from "lucide-react";
 import confetti from "canvas-confetti";
 
@@ -25,7 +26,7 @@ export function QuizModal({
   const [isShaking, setIsShaking] = useState(false);
 
   const currentQuiz = quizStep === "good" ? location.goodQuiz : location.badQuiz;
-  const Icon = location.icon;
+  const IconComponent = location.icon;
 
   const handleAnswer = (index: number) => {
     if (showResult) return;
@@ -36,7 +37,6 @@ export function QuizModal({
     setShowResult(true);
 
     if (correct) {
-      // Play success animation
       confetti({
         particleCount: 50,
         spread: 60,
@@ -44,7 +44,6 @@ export function QuizModal({
         colors: ['#FFEB3B', '#81D4FA', '#4DD0E1', '#FFB74D']
       });
     } else {
-      // Shake animation for wrong answer
       setIsShaking(true);
       setTimeout(() => setIsShaking(false), 500);
     }
@@ -52,7 +51,6 @@ export function QuizModal({
 
   const handleNext = () => {
     if (!isCorrect) {
-      // Reset for retry
       setSelectedAnswer(null);
       setShowResult(false);
       return;
@@ -63,7 +61,6 @@ export function QuizModal({
       setShowResult(false);
       onAdvance();
     } else if (quizStep === "bad") {
-      // Trigger success animation
       confetti({
         particleCount: 150,
         spread: 100,
@@ -74,13 +71,12 @@ export function QuizModal({
     }
   };
 
-  // Intro screen
   if (quizStep === "intro") {
     return (
       <div className="fixed inset-0 bg-foreground/50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
         <div className="card-detective max-w-lg w-full animate-scale-in">
           <div className={`w-20 h-20 mx-auto mb-4 ${location.bgColor} rounded-full flex items-center justify-center`}>
-            <Icon className="w-10 h-10 text-white" />
+            <IconComponent className="w-10 h-10 text-white" />
           </div>
           
           <h2 className="font-display text-2xl text-center text-foreground mb-2">
@@ -120,7 +116,6 @@ export function QuizModal({
     );
   }
 
-  // Success screen
   if (quizStep === "success") {
     return (
       <div className="fixed inset-0 bg-foreground/50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
@@ -155,27 +150,22 @@ export function QuizModal({
     );
   }
 
-  // Quiz screen
   return (
     <div className="fixed inset-0 bg-foreground/50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
       <div className={`card-detective max-w-lg w-full animate-fade-in ${isShaking ? "shake" : ""}`}>
-        {/* Progress indicator */}
         <div className="flex justify-center gap-2 mb-4">
           <div className={`w-3 h-3 rounded-full ${quizStep === "good" ? "bg-sunshine" : "bg-mint"}`} />
           <div className={`w-3 h-3 rounded-full ${quizStep === "bad" ? "bg-sunshine" : "bg-muted"}`} />
         </div>
 
-        {/* Question header */}
         <div className={`inline-block px-4 py-1 rounded-full text-sm font-bold mb-4 ${quizStep === "good" ? "bg-mint/20 text-mint" : "bg-coral/20 text-coral"}`}>
           {quizStep === "good" ? "1단계: 좋은 점 찾기 😊" : "2단계: 위험한 점 찾기 ⚠️"}
         </div>
 
-        {/* Question */}
         <h3 className="font-display text-xl text-foreground mb-6">
           {currentQuiz.question}
         </h3>
 
-        {/* Options */}
         <div className="space-y-3 mb-6">
           {currentQuiz.options.map((option, index) => {
             let buttonClass = "w-full p-4 rounded-2xl border-2 text-left transition-all ";
@@ -218,7 +208,6 @@ export function QuizModal({
           })}
         </div>
 
-        {/* Result message */}
         {showResult && (
           <div className={`p-4 rounded-2xl mb-4 ${isCorrect ? "bg-mint/20" : "bg-destructive/20"}`}>
             <p className={`text-center font-bold ${isCorrect ? "text-mint" : "text-destructive"}`}>
@@ -227,7 +216,6 @@ export function QuizModal({
           </div>
         )}
 
-        {/* Next button */}
         {showResult && (
           <button
             onClick={handleNext}
