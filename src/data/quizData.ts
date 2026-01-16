@@ -53,7 +53,7 @@ export const locations: Location[] = [
       hint: "AI가 그림을 만들 때 다른 화가들의 작품을 어떻게 배우는지 생각해 보세요! ✏️",
     },
     badgeEmoji: "🎨",
-    position: { x: 15, y: 20 },
+    position: { x: 14, y: 48 },
     bgColor: "bg-coral",
   },
   {
@@ -87,7 +87,7 @@ export const locations: Location[] = [
       hint: "좋아하는 것만 계속 보면 어떤 문제가 생길까요? '편식'을 떠올려 보세요! 🤔",
     },
     badgeEmoji: "📺",
-    position: { x: 75, y: 15 },
+    position: { x: 10, y: 78 },
     bgColor: "bg-peach",
   },
   {
@@ -121,7 +121,7 @@ export const locations: Location[] = [
       hint: "편리한 기계에 너무 의존하면 우리가 잃을 수 있는 것이 무엇일까요? 📚",
     },
     badgeEmoji: "🌍",
-    position: { x: 50, y: 45 },
+    position: { x: 30, y: 42 },
     bgColor: "bg-mint",
   },
   {
@@ -155,7 +155,7 @@ export const locations: Location[] = [
       hint: "AI가 답을 다 알려주면, 우리의 '생각하는 힘'은 어떻게 될까요? 🧠",
     },
     badgeEmoji: "📚",
-    position: { x: 20, y: 65 },
+    position: { x: 50, y: 38 },
     bgColor: "bg-lavender",
   },
   {
@@ -189,7 +189,7 @@ export const locations: Location[] = [
       hint: "사진을 찍을 때 나의 어떤 '정보'가 함께 담길 수 있을지 생각해 보세요! 📸",
     },
     badgeEmoji: "🍽️",
-    position: { x: 80, y: 55 },
+    position: { x: 86, y: 48 },
     bgColor: "bg-sunshine",
   },
   {
@@ -223,7 +223,7 @@ export const locations: Location[] = [
       hint: "AI가 실수를 했을 때, 사람처럼 '책임'을 질 수 있을까요? 🤖",
     },
     badgeEmoji: "⚽",
-    position: { x: 50, y: 80 },
+    position: { x: 85, y: 80 },
     bgColor: "bg-sky",
   },
 ];

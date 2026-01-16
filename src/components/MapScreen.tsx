@@ -1,6 +1,7 @@
 import { locations } from "@/data/quizData";
 import { Award, Star, Home } from "lucide-react";
 import logo from "@/assets/logo.png";
+import mapBg from "@/assets/map-bg.png";
 
 interface MapScreenProps {
   detectiveName: string;
@@ -63,16 +64,10 @@ export function MapScreen({
       </div>
 
       <div className="max-w-4xl mx-auto px-4 pb-6">
-        <div className="relative aspect-[4/3] md:aspect-[16/9] bg-card rounded-3xl shadow-card overflow-hidden">
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 left-0 w-full h-full" style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2381D4FA' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-            }} />
-          </div>
-
-          <div className="absolute top-4 left-8 w-20 h-8 bg-white/60 rounded-full blur-sm" />
-          <div className="absolute top-8 left-16 w-16 h-6 bg-white/40 rounded-full blur-sm" />
-          <div className="absolute top-6 right-12 w-24 h-10 bg-white/50 rounded-full blur-sm" />
+        <div 
+          className="relative aspect-[4/3] md:aspect-[16/9] rounded-3xl shadow-card overflow-hidden bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${mapBg})` }}
+        >
 
           {locations.map((location) => {
             const isSolved = solvedLocations.includes(location.id);
