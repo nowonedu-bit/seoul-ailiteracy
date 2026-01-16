@@ -22,7 +22,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Noto Sans KR", "sans-serif"],
+        sans: ["Jua", "sans-serif"],
         display: ["Jua", "sans-serif"],
       },
       colors: {
