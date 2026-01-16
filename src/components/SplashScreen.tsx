@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Search, Sparkles } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 interface SplashScreenProps {
   onStart: (name: string) => void;
@@ -34,18 +35,12 @@ export function SplashScreen({ onStart }: SplashScreenProps) {
 
       {/* Main content */}
       <div className="card-detective max-w-md w-full text-center animate-scale-in">
-        {/* Badge */}
-        <div className="w-24 h-24 mx-auto mb-6 bg-sunshine rounded-full flex items-center justify-center shadow-lg">
-          <Search className="w-12 h-12 text-foreground" />
-        </div>
-
-        {/* Title */}
-        <h1 className="font-display text-3xl md:text-4xl text-foreground mb-2">
-          AI 탐정단
-        </h1>
-        <p className="text-lg text-sky-dark font-display mb-6">
-          두 얼굴의 도시를 구해라! 🔍
-        </p>
+        {/* Logo */}
+        <img 
+          src={logo} 
+          alt="AI 탐정단 - 두 얼굴의 도시를 구해라!" 
+          className="w-64 mx-auto mb-6"
+        />
 
         {/* Description */}
         <p className="text-muted-foreground mb-8 leading-relaxed">

@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { Download, RotateCcw, Award, Star } from "lucide-react";
 import html2canvas from "html2canvas";
 import { locations } from "@/data/quizData";
+import logo from "@/assets/logo.png";
 
 interface CertificateProps {
   detectiveName: string;
@@ -39,6 +40,7 @@ export function Certificate({ detectiveName, aiPromise, onReset }: CertificatePr
 
   return (
     <div className="min-h-screen gradient-hero flex flex-col items-center justify-center p-4">
+      <img src={logo} alt="AI 탐정단" className="h-12 mb-4" />
       {/* Certificate */}
       <div
         ref={certificateRef}

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { finalQuizQuestions } from "@/data/quizData";
 import { ArrowRight, Trophy, Home } from "lucide-react";
 import confetti from "canvas-confetti";
+import logo from "@/assets/logo.png";
 
 interface FinalQuizProps {
   onComplete: (promise: string) => void;
@@ -75,7 +76,8 @@ export function FinalQuiz({ onComplete, onBack, onGoHome }: FinalQuizProps) {
 
   if (quizComplete) {
     return (
-      <div className="min-h-screen gradient-hero flex items-center justify-center p-4">
+      <div className="min-h-screen gradient-hero flex flex-col items-center justify-center p-4">
+        <img src={logo} alt="AI 탐정단" className="h-12 mb-4" />
         <div className={`card-detective max-w-lg w-full animate-scale-in ${isShaking ? "shake" : ""}`}>
           <div className="w-24 h-24 mx-auto mb-4 bg-sunshine rounded-full flex items-center justify-center">
             <Trophy className="w-12 h-12 text-foreground" />
@@ -115,7 +117,8 @@ export function FinalQuiz({ onComplete, onBack, onGoHome }: FinalQuizProps) {
   }
 
   return (
-    <div className="min-h-screen gradient-hero flex items-center justify-center p-4">
+    <div className="min-h-screen gradient-hero flex flex-col items-center justify-center p-4">
+      <img src={logo} alt="AI 탐정단" className="h-12 mb-4" />
       <div className={`card-detective max-w-lg w-full animate-fade-in ${isShaking ? "shake" : ""}`}>
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
