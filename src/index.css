@@ -145,13 +145,13 @@
   }
 
   .badge-slot {
-    @apply w-14 h-14 rounded-full bg-muted flex items-center justify-center;
-    @apply border-4 border-dashed border-muted-foreground/30;
+    @apply w-16 h-16 rounded-full bg-muted/50 flex items-center justify-center;
+    @apply border-2 border-dashed border-muted-foreground/30;
   }
 
   .badge-slot.earned {
-    @apply bg-sunshine border-solid border-sunshine-dark;
-    animation: badge-pop 0.5s ease-out;
+    @apply bg-transparent border-0;
+    animation: badge-shine 2s ease-in-out infinite;
   }
 
   .shake {
@@ -263,6 +263,15 @@
 @keyframes sparkle {
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+@keyframes badge-shine {
+  0%, 100% { 
+    filter: drop-shadow(0 0 4px hsl(54 100% 61% / 0.6));
+  }
+  50% { 
+    filter: drop-shadow(0 0 12px hsl(54 100% 61% / 0.9));
+  }
 }
 
 .animate-pulse-glow {
