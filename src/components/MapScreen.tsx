@@ -2,6 +2,7 @@ import { locations } from "@/data/quizData";
 import { Award, Star, Home } from "lucide-react";
 import logo from "@/assets/logo.png";
 import mapBg from "@/assets/map-bg.png";
+import { BadgeIcon } from "./BadgeIcon";
 
 interface MapScreenProps {
   detectiveName: string;
@@ -52,7 +53,11 @@ export function MapScreen({
                   title={location.name}
                 >
                   {isSolved ? (
-                    <span className="text-2xl">{location.badgeEmoji}</span>
+                    <BadgeIcon 
+                      row={location.badgePosition.row} 
+                      col={location.badgePosition.col} 
+                      size="sm"
+                    />
                   ) : (
                     <span className="text-xl text-muted-foreground/40">?</span>
                   )}
@@ -84,9 +89,13 @@ export function MapScreen({
                 }}
                 disabled={isSolved}
               >
-                <div className={`location-marker ${isSolved ? "solved" : "unsolved"} ${location.bgColor}`}>
+                <div className={`location-marker ${isSolved ? "solved" : "unsolved"} ${isSolved ? "" : location.bgColor}`}>
                   {isSolved ? (
-                    <span className="text-3xl">{location.badgeEmoji}</span>
+                    <BadgeIcon 
+                      row={location.badgePosition.row} 
+                      col={location.badgePosition.col} 
+                      size="md"
+                    />
                   ) : (
                     <IconComponent className="w-8 h-8 text-white" />
                   )}
