@@ -213,8 +213,11 @@ export function QuizModal({
 
         {showResult && (
           <div className={`p-4 rounded-2xl mb-4 ${isCorrect ? "bg-mint/20" : "bg-destructive/20"}`}>
-            <p className={`text-center font-bold ${isCorrect ? "text-mint" : "text-destructive"}`}>
+            <p className={`text-center font-bold mb-2 ${isCorrect ? "text-mint" : "text-destructive"}`}>
               {isCorrect ? "🎉 정답이에요! 잘했어요!" : "😅 아쉬워요! 다시 생각해볼까요?"}
+            </p>
+            <p className="text-sm text-muted-foreground text-center">
+              💡 {currentQuiz.explanation}
             </p>
           </div>
         )}
