@@ -5,6 +5,7 @@ import { ArrowRight, CheckCircle, XCircle, Sparkles } from "lucide-react";
 import confetti from "canvas-confetti";
 import { LocationIcon } from "./LocationIcon";
 import { BadgeIcon } from "./BadgeIcon";
+import logo from "@/assets/logo.png";
 
 interface QuizModalProps {
   locationId: string;
@@ -74,7 +75,8 @@ export function QuizModal({
 
   if (quizStep === "intro") {
     return (
-      <div className="fixed inset-0 bg-foreground/50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+      <div className="fixed inset-0 bg-foreground/50 backdrop-blur-sm flex flex-col items-center justify-center p-4 z-50">
+        <img src={logo} alt="AI 탐정단" className="h-16 md:h-20 object-contain mb-4" />
         <div className="card-detective max-w-lg w-full animate-scale-in">
           <div className="w-32 h-32 mx-auto mb-4 flex items-center justify-center">
             <LocationIcon locationId={location.id} size="lg" className="w-28 h-28" />
@@ -119,7 +121,8 @@ export function QuizModal({
 
   if (quizStep === "success") {
     return (
-      <div className="fixed inset-0 bg-foreground/50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+      <div className="fixed inset-0 bg-foreground/50 backdrop-blur-sm flex flex-col items-center justify-center p-4 z-50">
+        <img src={logo} alt="AI 탐정단" className="h-16 md:h-20 object-contain mb-4" />
         <div className="card-detective max-w-lg w-full animate-bounce-in text-center">
           <div className="w-28 h-28 mx-auto mb-4 flex items-center justify-center">
             <BadgeIcon locationId={location.id} size="lg" />
@@ -152,7 +155,8 @@ export function QuizModal({
   }
 
   return (
-    <div className="fixed inset-0 bg-foreground/50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+    <div className="fixed inset-0 bg-foreground/50 backdrop-blur-sm flex flex-col items-center justify-center p-4 z-50">
+      <img src={logo} alt="AI 탐정단" className="h-16 md:h-20 object-contain mb-4" />
       <div className={`card-detective max-w-lg w-full animate-fade-in ${isShaking ? "shake" : ""}`}>
         <div className="flex justify-center gap-2 mb-4">
           <div className={`w-3 h-3 rounded-full ${quizStep === "good" ? "bg-sunshine" : "bg-mint"}`} />
