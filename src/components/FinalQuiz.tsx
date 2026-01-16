@@ -77,7 +77,7 @@ export function FinalQuiz({ onComplete, onBack, onGoHome }: FinalQuizProps) {
   if (quizComplete) {
     return (
       <div className="min-h-screen gradient-hero flex flex-col items-center justify-center p-4">
-        <img src={logo} alt="AI 탐정단" className="h-12 mb-4" />
+        <img src={logo} alt="AI 탐정단" className="h-16 md:h-20 mb-6" />
         <div className={`card-detective max-w-lg w-full animate-scale-in ${isShaking ? "shake" : ""}`}>
           <div className="w-24 h-24 mx-auto mb-4 bg-sunshine rounded-full flex items-center justify-center">
             <Trophy className="w-12 h-12 text-foreground" />
@@ -118,7 +118,7 @@ export function FinalQuiz({ onComplete, onBack, onGoHome }: FinalQuizProps) {
 
   return (
     <div className="min-h-screen gradient-hero flex flex-col items-center justify-center p-4">
-      <img src={logo} alt="AI 탐정단" className="h-12 mb-4" />
+      <img src={logo} alt="AI 탐정단" className="h-16 md:h-20 mb-6" />
       <div className={`card-detective max-w-lg w-full animate-fade-in ${isShaking ? "shake" : ""}`}>
         {/* Header */}
         <div className="flex items-center justify-between mb-6">

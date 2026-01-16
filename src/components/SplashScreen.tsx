@@ -39,7 +39,7 @@ export function SplashScreen({ onStart }: SplashScreenProps) {
         <img 
           src={logo} 
           alt="AI 탐정단 - 두 얼굴의 도시를 구해라!" 
-          className="w-64 mx-auto mb-6"
+          className="w-80 md:w-96 mx-auto mb-8"
         />
 
         {/* Description */}
