@@ -3,6 +3,7 @@ import { Award, Star, Home } from "lucide-react";
 import logo from "@/assets/logo.png";
 import mapBg from "@/assets/map-bg.png";
 import { BadgeIcon } from "./BadgeIcon";
+import { LocationIcon } from "./LocationIcon";
 
 interface MapScreenProps {
   detectiveName: string;
@@ -75,7 +76,6 @@ export function MapScreen({
 
           {locations.map((location) => {
             const isSolved = solvedLocations.includes(location.id);
-            const IconComponent = location.icon;
             
             return (
               <button
@@ -88,14 +88,14 @@ export function MapScreen({
                 }}
                 disabled={isSolved}
               >
-                <div className={`location-marker ${isSolved ? "solved" : "unsolved"} ${isSolved ? "" : location.bgColor}`}>
+                <div className="flex flex-col items-center">
                   {isSolved ? (
-                    <span className="text-3xl">{location.badgeEmoji}</span>
+                    <BadgeIcon locationId={location.id} size="md" />
                   ) : (
-                    <IconComponent className="w-8 h-8 text-white" />
+                    <LocationIcon locationId={location.id} size="lg" />
                   )}
                 </div>
-                <div className="mt-2 text-center">
+                <div className="mt-1 text-center">
                   <span className={`text-sm font-bold px-2 py-1 rounded-full ${isSolved ? "bg-mint text-white" : "bg-card text-foreground"}`}>
                     {location.name}
                   </span>

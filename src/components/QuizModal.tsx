@@ -3,6 +3,8 @@ import { locations } from "@/data/quizData";
 import type { Location } from "@/data/quizData";
 import { ArrowRight, CheckCircle, XCircle, Sparkles } from "lucide-react";
 import confetti from "canvas-confetti";
+import { LocationIcon } from "./LocationIcon";
+import { BadgeIcon } from "./BadgeIcon";
 
 interface QuizModalProps {
   locationId: string;
@@ -26,7 +28,6 @@ export function QuizModal({
   const [isShaking, setIsShaking] = useState(false);
 
   const currentQuiz = quizStep === "good" ? location.goodQuiz : location.badQuiz;
-  const IconComponent = location.icon;
 
   const handleAnswer = (index: number) => {
     if (showResult) return;
@@ -75,8 +76,8 @@ export function QuizModal({
     return (
       <div className="fixed inset-0 bg-foreground/50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
         <div className="card-detective max-w-lg w-full animate-scale-in">
-          <div className={`w-20 h-20 mx-auto mb-4 ${location.bgColor} rounded-full flex items-center justify-center`}>
-            <IconComponent className="w-10 h-10 text-white" />
+          <div className="w-24 h-24 mx-auto mb-4 flex items-center justify-center">
+            <LocationIcon locationId={location.id} size="lg" />
           </div>
           
           <h2 className="font-display text-2xl text-center text-foreground mb-2">
@@ -120,8 +121,8 @@ export function QuizModal({
     return (
       <div className="fixed inset-0 bg-foreground/50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
         <div className="card-detective max-w-lg w-full animate-bounce-in text-center">
-          <div className="w-24 h-24 mx-auto mb-4 bg-mint rounded-full flex items-center justify-center">
-            <span className="text-5xl">{location.badgeEmoji}</span>
+          <div className="w-28 h-28 mx-auto mb-4 flex items-center justify-center">
+            <BadgeIcon locationId={location.id} size="lg" />
           </div>
           
           <h2 className="font-display text-3xl text-foreground mb-2">
