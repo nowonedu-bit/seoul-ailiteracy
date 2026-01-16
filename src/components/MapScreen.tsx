@@ -90,17 +90,12 @@ export function MapScreen({
               >
                 <div className="flex flex-col items-center">
                   {isSolved ? (
-                    <BadgeIcon locationId={location.id} size="md" />
+                    <BadgeIcon locationId={location.id} size="lg" />
                   ) : (
-                    <div className="w-16 h-16 rounded-full bg-white/90 shadow-lg flex items-center justify-center border-4 border-sunshine">
-                      <LocationIcon locationId={location.id} size="sm" className="scale-110" />
+                    <div className="w-20 h-20 rounded-full bg-white/90 shadow-lg flex items-center justify-center border-4 border-sunshine">
+                      <LocationIcon locationId={location.id} size="md" className="scale-110" />
                     </div>
                   )}
-                </div>
-                <div className="mt-1 text-center">
-                  <span className={`text-sm font-bold px-2 py-1 rounded-full ${isSolved ? "bg-mint text-white" : "bg-card text-foreground"}`}>
-                    {location.name}
-                  </span>
                 </div>
                 {!isSolved && (
                   <Star className="absolute -top-1 -right-1 w-5 h-5 text-sunshine animate-sparkle" />
