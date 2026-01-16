@@ -1,32 +1,43 @@
-import badgesSprite from "@/assets/badges-sprite.png";
+import classroomBadge from "@/assets/badges/classroom.png";
+import homeBadge from "@/assets/badges/home.png";
+import playgroundBadge from "@/assets/badges/playground.png";
+import academyBadge from "@/assets/badges/academy.png";
+import cafeteriaBadge from "@/assets/badges/cafeteria.png";
+import gymBadge from "@/assets/badges/gym.png";
+
+const badgeImages: Record<string, string> = {
+  classroom: classroomBadge,
+  home: homeBadge,
+  playground: playgroundBadge,
+  academy: academyBadge,
+  cafeteria: cafeteriaBadge,
+  gym: gymBadge,
+};
 
 interface BadgeIconProps {
-  row: number;
-  col: number;
+  locationId: string;
   size?: "sm" | "md" | "lg";
   className?: string;
 }
 
-export function BadgeIcon({ row, col, size = "md", className = "" }: BadgeIconProps) {
-  // Sprite is 3 columns x 2 rows
+export function BadgeIcon({ locationId, size = "md", className = "" }: BadgeIconProps) {
   const sizeClasses = {
-    sm: "w-10 h-10",
-    md: "w-14 h-14",
-    lg: "w-20 h-20",
+    sm: "w-12 h-12",
+    md: "w-16 h-16",
+    lg: "w-24 h-24",
   };
 
-  // Calculate background position (each badge is ~33.33% width, 50% height)
-  const xPos = col * 33.33;
-  const yPos = row * 50;
+  const badgeImage = badgeImages[locationId];
+
+  if (!badgeImage) {
+    return null;
+  }
 
   return (
-    <div
-      className={`${sizeClasses[size]} ${className} rounded-lg overflow-hidden`}
-      style={{
-        backgroundImage: `url(${badgesSprite})`,
-        backgroundSize: "300% 200%",
-        backgroundPosition: `${xPos}% ${yPos}%`,
-      }}
+    <img
+      src={badgeImage}
+      alt={`${locationId} badge`}
+      className={`${sizeClasses[size]} ${className} object-contain`}
     />
   );
 }
