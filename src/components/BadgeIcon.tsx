@@ -22,9 +22,9 @@ interface BadgeIconProps {
 
 export function BadgeIcon({ locationId, size = "md", className = "" }: BadgeIconProps) {
   const sizeClasses = {
-    sm: "w-12 h-12",
-    md: "w-16 h-16",
-    lg: "w-24 h-24",
+    sm: "w-16 h-16",
+    md: "w-20 h-20",
+    lg: "w-28 h-28",
   };
 
   const badgeImage = badgeImages[locationId];
