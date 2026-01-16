@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { finalQuizQuestions } from "@/data/quizData";
-import { ArrowRight, Trophy } from "lucide-react";
+import { ArrowRight, Trophy, Home } from "lucide-react";
 import confetti from "canvas-confetti";
 
 interface FinalQuizProps {
   onComplete: (promise: string) => void;
   onBack: () => void;
+  onGoHome: () => void;
 }
 
-export function FinalQuiz({ onComplete, onBack }: FinalQuizProps) {
+export function FinalQuiz({ onComplete, onBack, onGoHome }: FinalQuizProps) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
@@ -128,6 +129,13 @@ export function FinalQuiz({ onComplete, onBack }: FinalQuizProps) {
             <Trophy className="w-4 h-4 text-sunshine-dark" />
             <span className="font-bold text-sm">{currentQuestion + 1}/{finalQuizQuestions.length}</span>
           </div>
+          <button
+            onClick={onGoHome}
+            className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <Home className="w-4 h-4" />
+            <span className="text-sm">처음으로</span>
+          </button>
         </div>
 
         {/* Progress bar */}
