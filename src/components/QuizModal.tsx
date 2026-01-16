@@ -171,11 +171,14 @@ export function QuizModal({
             let buttonClass = "w-full p-4 rounded-2xl border-2 text-left transition-all ";
             
             if (showResult) {
-              if (index === currentQuiz.correctIndex) {
+              if (isCorrect && index === currentQuiz.correctIndex) {
+                // 정답을 맞혔을 때만 정답 표시
                 buttonClass += "border-mint bg-mint/10 text-foreground";
               } else if (index === selectedAnswer && !isCorrect) {
+                // 오답 선택 표시
                 buttonClass += "border-destructive bg-destructive/10 text-foreground";
               } else {
+                // 나머지는 그냥 흐리게 (정답 힌트 안 줌)
                 buttonClass += "border-border bg-muted/50 text-muted-foreground";
               }
             } else if (selectedAnswer === index) {
@@ -196,7 +199,7 @@ export function QuizModal({
                     {index + 1}
                   </span>
                   <span className="flex-1 pt-1">{option}</span>
-                  {showResult && index === currentQuiz.correctIndex && (
+                  {showResult && isCorrect && index === currentQuiz.correctIndex && (
                     <CheckCircle className="w-6 h-6 text-mint flex-shrink-0" />
                   )}
                   {showResult && index === selectedAnswer && !isCorrect && (
