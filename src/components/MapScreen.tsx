@@ -1,5 +1,6 @@
 import { locations } from "@/data/quizData";
 import { Award, Star, Home } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 interface MapScreenProps {
   detectiveName: string;
@@ -20,19 +21,19 @@ export function MapScreen({
 }: MapScreenProps) {
   return (
     <div className="min-h-screen gradient-map">
-      <header className="bg-card/90 backdrop-blur-sm shadow-soft p-4">
+      <header className="bg-card/90 backdrop-blur-sm shadow-soft p-3">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
+          <img src={logo} alt="AI 탐정단" className="h-10" />
           <div className="flex items-center gap-2">
-            <span className="text-2xl">🔍</span>
-            <span className="font-display text-lg text-foreground">
-              반가워요, <span className="text-sky-dark">{detectiveName}</span> 탐정님!
+            <span className="font-display text-sm text-foreground">
+              <span className="text-sky-dark">{detectiveName}</span> 탐정님
             </span>
-          </div>
-          <div className="flex items-center gap-2 bg-sunshine/20 px-4 py-2 rounded-full">
-            <Award className="w-5 h-5 text-sunshine-dark" />
-            <span className="font-bold text-foreground">
-              {solvedLocations.length}/6
-            </span>
+            <div className="flex items-center gap-1 bg-sunshine/20 px-3 py-1 rounded-full">
+              <Award className="w-4 h-4 text-sunshine-dark" />
+              <span className="font-bold text-sm text-foreground">
+                {solvedLocations.length}/6
+              </span>
+            </div>
           </div>
         </div>
       </header>
