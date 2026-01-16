@@ -152,11 +152,14 @@ export function FinalQuiz({ onComplete, onBack }: FinalQuizProps) {
             let buttonClass = "py-6 rounded-2xl font-display text-2xl transition-all ";
             
             if (showResult) {
-              if (answer === question.answer) {
+              if (isCorrect && answer === question.answer) {
+                // 정답을 맞혔을 때만 정답 표시
                 buttonClass += "bg-mint text-white";
               } else if (answer === selectedAnswer && !isCorrect) {
+                // 오답 선택 표시
                 buttonClass += "bg-destructive text-white";
               } else {
+                // 나머지는 그냥 흐리게 (정답 힌트 안 줌)
                 buttonClass += "bg-muted text-muted-foreground";
               }
             } else if (selectedAnswer === answer) {
