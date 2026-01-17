@@ -90,6 +90,7 @@
 @layer base {
   * {
     @apply border-border;
+    font-family: 'Jua', sans-serif;
   }
 
   body {
@@ -97,7 +98,7 @@
     font-family: 'Jua', sans-serif;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1, h2, h3, h4, h5, h6, p, span, button, input, textarea, label {
     font-family: 'Jua', sans-serif;
   }
 }
