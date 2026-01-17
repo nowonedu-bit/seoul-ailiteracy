@@ -39,12 +39,23 @@ export function DualityCheck({ location, onComplete }: DualityCheckProps) {
 
   return (
     <div className="animate-fade-in">
-      <div className="text-center mb-6">
-        <h3 className="font-display text-xl text-foreground mb-2">
+      {/* 시나리오 표시 */}
+      <div className="bg-lavender/20 border-2 border-lavender/40 rounded-2xl p-4 mb-4">
+        <div className="flex items-start gap-2 mb-2">
+          <span className="text-xl">📖</span>
+          <p className="font-bold text-lavender-dark text-sm">오늘의 상황</p>
+        </div>
+        <p className="text-sm text-foreground leading-relaxed">
+          {location.scenario}
+        </p>
+      </div>
+
+      <div className="text-center mb-4">
+        <h3 className="font-display text-lg text-foreground mb-1">
           🤔 잠깐! 먼저 생각해볼까요?
         </h3>
         <p className="text-muted-foreground text-sm">
-          <span className="text-foreground font-semibold">{location.aiType}</span>의 두 얼굴을 생각해보세요!
+          이 <span className="text-foreground font-semibold">{location.aiType}</span>의 두 얼굴을 생각해보세요!
         </p>
       </div>
 
