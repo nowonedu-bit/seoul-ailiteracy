@@ -174,20 +174,28 @@ export function QuizModal({
 
   return (
     <div className="fixed inset-0 bg-foreground/50 backdrop-blur-sm flex flex-col items-center justify-center p-4 z-50">
-      <img src={logo} alt="AI 탐정단" className="h-16 md:h-20 object-contain mb-4" />
-      <div className={`card-detective max-w-lg w-full animate-fade-in ${isShaking ? "shake" : ""}`}>
-        <div className="flex justify-center gap-2 mb-4">
-          <div className={`w-3 h-3 rounded-full ${quizStep === "good" ? "bg-sunshine" : "bg-mint"}`} />
-          <div className={`w-3 h-3 rounded-full ${quizStep === "bad" ? "bg-sunshine" : "bg-muted"}`} />
-        </div>
+      <img src={logo} alt="AI 탐정단" className="h-12 md:h-16 object-contain mb-2 flex-shrink-0" />
+      <div className={`card-detective max-w-lg w-full animate-fade-in overflow-hidden flex flex-col max-h-[85vh] ${isShaking ? "shake" : ""}`}>
+        <div className="overflow-y-auto flex-1 px-1">
+          <div className="flex justify-center gap-2 mb-3">
+            <div className={`w-3 h-3 rounded-full ${quizStep === "good" ? "bg-sunshine" : "bg-mint"}`} />
+            <div className={`w-3 h-3 rounded-full ${quizStep === "bad" ? "bg-sunshine" : "bg-muted"}`} />
+          </div>
 
-        <div className={`inline-block px-4 py-1 rounded-full text-sm font-bold mb-4 ${quizStep === "good" ? "bg-mint/20 text-mint" : "bg-coral/20 text-coral"}`}>
-          {quizStep === "good" ? "🔎 단서 1: 이로운 점 찾기" : "🔎 단서 2: 해로운 점 찾기"}
-        </div>
+          <div className={`inline-block px-4 py-1 rounded-full text-sm font-bold mb-3 ${quizStep === "good" ? "bg-mint/20 text-mint" : "bg-coral/20 text-coral"}`}>
+            {quizStep === "good" ? "🔎 단서 1: 이로운 점 찾기" : "🔎 단서 2: 해로운 점 찾기"}
+          </div>
 
-        <h3 className="font-display text-xl text-foreground mb-6">
-          {currentQuiz.question}
-        </h3>
+          {/* 사건 내용 요약 */}
+          <div className="bg-lavender/10 border border-lavender/30 rounded-xl p-3 mb-4">
+            <p className="text-xs text-muted-foreground">
+              <span className="font-bold text-lavender-dark">📋 사건:</span> {location.scenario}
+            </p>
+          </div>
+
+          <h3 className="font-display text-lg text-foreground mb-4">
+            {currentQuiz.question}
+          </h3>
 
         <div className="space-y-3 mb-6">
           {currentQuiz.options.map((option, index) => {
@@ -237,10 +245,10 @@ export function QuizModal({
         {showResult && (
           <div className={`p-4 rounded-2xl mb-4 ${isCorrect ? "bg-mint/20" : "bg-amber-100"}`}>
             <p className={`text-center font-bold mb-2 ${isCorrect ? "text-mint" : "text-amber-700"}`}>
-              {isCorrect ? "🎉 정답이에요! 잘했어요!" : "😅 아쉬워요! 다시 생각해볼까요?"}
+              {isCorrect ? "🎉 단서를 찾았어요!" : "😅 아쉬워요! 다시 추리해볼까요?"}
             </p>
             <p className="text-sm text-muted-foreground text-center">
-              {isCorrect ? `💡 ${currentQuiz.explanation}` : `💡 힌트: ${currentQuiz.hint}`}
+              {isCorrect ? `🔍 탐정 수첩: ${currentQuiz.explanation}` : `💡 힌트: ${currentQuiz.hint}`}
             </p>
           </div>
         )}
@@ -257,6 +265,7 @@ export function QuizModal({
             )}
           </button>
         )}
+        </div>
       </div>
     </div>
   );
