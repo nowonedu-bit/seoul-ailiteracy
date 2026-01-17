@@ -33,8 +33,8 @@ export const locations: Location[] = [
     aiType: "이미지 생성 AI",
     aiDescription: "그림을 뚝딱 만들어주는 AI예요!",
     scenario: "미술 시간에 '미래 도시'를 그려야 해요. 친구가 \"AI로 그림 만들면 빨리 끝나!\"라고 말합니다. AI에게 \"하늘을 나는 자동차가 있는 도시\"라고 말하니 정말 멋진 그림이 뚝딱 나왔어요!",
-    goodPlaceholder: "예: 상상한 그림을 빠르게 만들어줘서...",
-    badPlaceholder: "예: 다른 화가의 그림을 허락 없이...",
+    goodPlaceholder: "이 AI 덕분에 뭐가 좋았을까요?",
+    badPlaceholder: "이 AI 때문에 어떤 문제가 생길 수 있을까요?",
     goodQuiz: {
       question: "🔎 탐정님, 이 사건에서 AI가 우리에게 도움이 된 점은 무엇일까요?",
       options: [
@@ -71,8 +71,8 @@ export const locations: Location[] = [
     aiType: "콘텐츠 추천 AI",
     aiDescription: "내가 좋아할 영상을 찾아주는 AI예요!",
     scenario: "집에서 태블릿으로 영상을 보고 있어요. 공룡 영상 하나를 봤더니 AI가 \"이 영상도 좋아하실 거예요!\"라며 공룡 영상만 계속 추천해줘요. 어느새 2시간이나 공룡 영상만 봤네요!",
-    goodPlaceholder: "예: 내가 좋아하는 영상을 찾아줘서...",
-    badPlaceholder: "예: 같은 것만 보게 되어 생각이...",
+    goodPlaceholder: "영상을 찾을 때 뭐가 편해졌을까요?",
+    badPlaceholder: "같은 영상만 보면 어떤 점이 걱정될까요?",
     goodQuiz: {
       question: "🔎 탐정님, 이 사건에서 AI가 우리에게 도움이 된 점은 무엇일까요?",
       options: [
@@ -109,8 +109,8 @@ export const locations: Location[] = [
     aiType: "실시간 번역 AI",
     aiDescription: "다른 나라 말을 척척 번역해주는 AI예요!",
     scenario: "놀이터에서 외국인 친구를 만났어요! 그 친구가 영어로 말을 거는데 무슨 뜻인지 모르겠어요. 휴대폰의 번역 AI를 켜니까 친구의 말이 한국어로 바로 나타나요. 우와, 대화할 수 있게 됐어요!",
-    goodPlaceholder: "예: 외국인 친구와 대화할 수 있어서...",
-    badPlaceholder: "예: 번역기만 믿으면 외국어 공부를...",
+    goodPlaceholder: "외국인 친구를 만났을 때 뭐가 좋았을까요?",
+    badPlaceholder: "번역기에만 의지하면 어떤 점이 아쉬울까요?",
     goodQuiz: {
       question: "🔎 탐정님, 이 사건에서 AI가 우리에게 도움이 된 점은 무엇일까요?",
       options: [
@@ -147,8 +147,8 @@ export const locations: Location[] = [
     aiType: "인공지능 튜터",
     aiDescription: "공부를 도와주는 선생님 AI예요!",
     scenario: "학원 숙제가 어려워서 고민이에요. AI 튜터에게 \"이 문제 어떻게 풀어?\"라고 물어보니 친절하게 설명해줘요. 심지어 밤늦게 물어봐도 언제든 대답해줘요!",
-    goodPlaceholder: "예: 모르는 문제를 언제든 물어볼 수 있어서...",
-    badPlaceholder: "예: AI 답만 베끼면 스스로 생각하는 힘이...",
+    goodPlaceholder: "공부할 때 AI가 어떻게 도와줬을까요?",
+    badPlaceholder: "AI에게 다 물어보면 어떤 점이 걱정될까요?",
     goodQuiz: {
       question: "🔎 탐정님, 이 사건에서 AI가 우리에게 도움이 된 점은 무엇일까요?",
       options: [
@@ -185,8 +185,8 @@ export const locations: Location[] = [
     aiType: "푸드 스캐너 & 식단 AI",
     aiDescription: "건강한 식단을 추천해주는 AI예요!",
     scenario: "급식실에서 점심을 먹었어요. 선생님이 \"식판 사진을 찍어서 AI에 보내면 영양 분석을 해준대!\"라고 하셔서 사진을 찍었더니, AI가 \"단백질은 충분하지만 채소를 더 먹으면 좋겠어요!\"라고 알려줘요.",
-    goodPlaceholder: "예: 부족한 영양소를 알려줘서 건강하게...",
-    badPlaceholder: "예: 사진에 내 얼굴이나 개인정보가...",
+    goodPlaceholder: "음식 사진을 분석하면 뭐가 좋을까요?",
+    badPlaceholder: "사진을 AI에 보내면 어떤 점이 걱정될까요?",
     goodQuiz: {
       question: "🔎 탐정님, 이 사건에서 AI가 우리에게 도움이 된 점은 무엇일까요?",
       options: [
@@ -223,8 +223,8 @@ export const locations: Location[] = [
     aiType: "AI 심판",
     aiDescription: "공정한 판정을 도와주는 AI예요!",
     scenario: "체육 시간에 피구를 하고 있어요. \"맞았어!\" \"아니야 안 맞았어!\"로 싸우게 됐는데, 선생님이 AI 심판 시스템을 켰어요. AI가 경기 영상을 분석해서 \"공이 팔에 닿았습니다\"라고 판정했어요!",
-    goodPlaceholder: "예: 정확한 판정으로 억울한 일이 없어져서...",
-    badPlaceholder: "예: AI가 실수하면 누가 책임을 져야 할지...",
+    goodPlaceholder: "AI가 판정하면 뭐가 좋아질까요?",
+    badPlaceholder: "AI가 실수하면 어떤 문제가 생길까요?",
     goodQuiz: {
       question: "🔎 탐정님, 이 사건에서 AI가 우리에게 도움이 된 점은 무엇일까요?",
       options: [
