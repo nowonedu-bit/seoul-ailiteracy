@@ -14,6 +14,7 @@ interface QuizModalProps {
   onAdvance: () => void;
   onComplete: () => void;
   onBack: () => void;
+  onSaveThoughts: (locationId: string, goodThought: string, badThought: string) => void;
 }
 
 export function QuizModal({
@@ -21,7 +22,8 @@ export function QuizModal({
   quizStep,
   onAdvance,
   onComplete,
-  onBack
+  onBack,
+  onSaveThoughts
 }: QuizModalProps) {
   const location = locations.find(l => l.id === locationId) as Location;
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
@@ -130,7 +132,13 @@ export function QuizModal({
               <LocationIcon locationId={location.id} size="lg" className="w-16 h-16" />
             </div>
             
-            <DualityCheck location={location} onComplete={onAdvance} />
+            <DualityCheck 
+              location={location} 
+              onComplete={(goodThought, badThought) => {
+                onSaveThoughts(location.id, goodThought, badThought);
+                onAdvance();
+              }} 
+            />
           </div>
         </div>
       </div>
@@ -261,7 +269,7 @@ export function QuizModal({
             {isCorrect ? (
               <>다음으로 <ArrowRight className="w-5 h-5" /></>
             ) : (
-              "다시 도전하기 💪"
+              "🔍 다시 추리하기"
             )}
           </button>
         )}
