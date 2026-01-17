@@ -5,13 +5,20 @@ import { locations } from "@/data/quizData";
 import logo from "@/assets/logo.png";
 import { BadgeIcon } from "./BadgeIcon";
 
+interface ThoughtRecord {
+  locationId: string;
+  goodThought: string;
+  badThought: string;
+}
+
 interface CertificateProps {
   detectiveName: string;
   aiPromise: string;
+  thoughts: ThoughtRecord[];
   onReset: () => void;
 }
 
-export function Certificate({ detectiveName, aiPromise, onReset }: CertificateProps) {
+export function Certificate({ detectiveName, aiPromise, thoughts, onReset }: CertificateProps) {
   const certificateRef = useRef<HTMLDivElement>(null);
 
   const handleDownload = async () => {
@@ -40,58 +47,75 @@ export function Certificate({ detectiveName, aiPromise, onReset }: CertificatePr
   });
 
   return (
-    <div className="min-h-screen gradient-hero flex flex-col p-4">
-      <img src={logo} alt="AI 탐정단" className="h-12 md:h-14 object-contain mb-6" />
-      <div className="flex-1 flex flex-col items-center justify-center">
+    <div className="min-h-screen gradient-hero flex flex-col p-4 overflow-auto">
+      <img src={logo} alt="AI 탐정단" className="h-12 md:h-14 object-contain mb-4 flex-shrink-0" />
+      <div className="flex-1 flex flex-col items-center pb-8">
         {/* Certificate */}
         <div
           ref={certificateRef}
-          className="bg-[#FFFDE7] rounded-3xl p-8 max-w-lg w-full shadow-2xl border-8 border-sunshine"
-          style={{ minHeight: "500px" }}
+          className="bg-[#FFFDE7] rounded-3xl p-6 max-w-lg w-full shadow-2xl border-8 border-sunshine"
         >
           {/* Header decorations */}
-          <div className="flex justify-center gap-2 mb-4">
-            <Star className="w-6 h-6 text-sunshine-dark" />
-            <Star className="w-8 h-8 text-sunshine" />
-            <Star className="w-6 h-6 text-sunshine-dark" />
+          <div className="flex justify-center gap-2 mb-3">
+            <Star className="w-5 h-5 text-sunshine-dark" />
+            <Star className="w-7 h-7 text-sunshine" />
+            <Star className="w-5 h-5 text-sunshine-dark" />
           </div>
 
           {/* Title */}
-          <div className="text-center mb-4">
-            <h1 className="font-display text-3xl text-foreground mb-1">🏆 일등 탐정 인증서 🏆</h1>
-            <p className="text-sky-dark font-medium mb-3">AI 탐정단 - 두 얼굴의 도시를 구해라!</p>
-            <img src={logo} alt="AI 탐정단" className="h-12 mx-auto" />
+          <div className="text-center mb-3">
+            <h1 className="font-display text-2xl text-foreground mb-1">🕵️ 명예 AI 탐정 인증서 🕵️</h1>
+            <p className="text-sky-dark font-medium text-sm">AI 탐정단 - 두 얼굴의 도시를 구해라!</p>
           </div>
 
           {/* Name */}
-          <div className="text-center mb-6">
-            <p className="text-muted-foreground mb-1">이 인증서를 다음 분께 수여합니다</p>
-            <p className="font-display text-3xl text-sky-dark border-b-4 border-sunshine inline-block px-4 pb-1">
+          <div className="text-center mb-4">
+            <p className="text-muted-foreground text-sm mb-1">AI의 두 얼굴을 밝혀낸</p>
+            <p className="font-display text-2xl text-sky-dark border-b-4 border-sunshine inline-block px-4 pb-1">
               {detectiveName}
             </p>
-            <p className="text-lg text-foreground mt-2">탐정님</p>
+            <p className="text-foreground mt-1">탐정님께 수여합니다</p>
           </div>
 
           {/* Badges */}
-          <div className="bg-white/60 rounded-2xl p-4 mb-4">
-            <p className="text-sm text-muted-foreground text-center mb-2">획득한 배지</p>
-            <div className="flex justify-center gap-3 flex-wrap">
+          <div className="bg-white/60 rounded-2xl p-3 mb-3">
+            <p className="text-xs text-muted-foreground text-center mb-2">🔍 수집한 증거 배지</p>
+            <div className="flex justify-center gap-2 flex-wrap">
               {locations.map((location) => (
-                <BadgeIcon key={location.id} locationId={location.id} size="md" />
+                <BadgeIcon key={location.id} locationId={location.id} size="sm" />
               ))}
             </div>
           </div>
 
+          {/* Detective Report */}
+          {thoughts.length > 0 && (
+            <div className="bg-lavender/20 rounded-2xl p-3 mb-3">
+              <p className="text-xs text-lavender-dark text-center mb-2 font-bold">📋 탐정 수첩 기록</p>
+              <div className="space-y-2 max-h-32 overflow-y-auto">
+                {thoughts.slice(0, 3).map((thought) => {
+                  const loc = locations.find(l => l.id === thought.locationId);
+                  return (
+                    <div key={thought.locationId} className="text-xs bg-white/50 rounded-lg p-2">
+                      <p className="font-bold text-lavender-dark mb-1">{loc?.badgeEmoji} {loc?.name}</p>
+                      <p className="text-mint">💡 {thought.goodThought}</p>
+                      <p className="text-coral">⚠️ {thought.badThought}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
           {/* Promise */}
-          <div className="bg-sky/20 rounded-2xl p-4 mb-6">
-            <p className="text-sm text-sky-dark text-center mb-1">✍️ 나의 AI 사용 약속</p>
-            <p className="text-center text-foreground font-medium">"{aiPromise}"</p>
+          <div className="bg-sky/20 rounded-2xl p-3 mb-3">
+            <p className="text-xs text-sky-dark text-center mb-1">🤝 탐정의 AI 사용 약속</p>
+            <p className="text-center text-foreground font-medium text-sm">"{aiPromise}"</p>
           </div>
 
           {/* Footer */}
           <div className="text-center">
-            <p className="text-sm text-muted-foreground">{today}</p>
-            <p className="text-xs text-muted-foreground mt-1">AI 탐정단 본부</p>
+            <p className="text-xs text-muted-foreground">{today}</p>
+            <p className="text-xs text-muted-foreground">AI 탐정단 본부장 🏛️</p>
           </div>
         </div>
 
@@ -108,11 +132,13 @@ export function Certificate({ detectiveName, aiPromise, onReset }: CertificatePr
         </div>
 
         {/* Congratulations message */}
-        <p className="mt-6 text-center text-foreground/80 max-w-md">
-          🎉 축하해요! AI의 좋은 점과 위험한 점을 모두 알게 되었어요!
-          <br />
-          앞으로도 AI를 현명하게 사용하는 멋진 탐정이 되세요! 🕵️
-        </p>
+        <div className="mt-6 text-center max-w-md bg-white/80 rounded-2xl p-4">
+          <p className="text-foreground font-bold mb-2">🎉 축하합니다, {detectiveName} 탐정님!</p>
+          <p className="text-sm text-muted-foreground">
+            AI의 이로운 점과 해로운 점을 균형있게 파악하는 능력을 갖추셨습니다.
+            앞으로도 AI를 사용할 때 항상 두 얼굴을 살피는 현명한 탐정이 되어주세요! 🕵️✨
+          </p>
+        </div>
       </div>
     </div>
   );

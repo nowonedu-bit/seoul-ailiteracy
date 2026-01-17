@@ -17,6 +17,7 @@ const Index = () => {
     goToFinal,
     setAiPromise,
     goToCertificate,
+    saveThoughts,
     resetGame,
     allLocationsSolved
   } = useGameState();
@@ -45,6 +46,7 @@ const Index = () => {
       <Certificate
         detectiveName={gameState.detectiveName}
         aiPromise={gameState.aiPromise}
+        thoughts={gameState.thoughts}
         onReset={resetGame}
       />
     );
@@ -71,6 +73,7 @@ const Index = () => {
           onAdvance={advanceQuizStep}
           onComplete={completeLocation}
           onBack={goToMap}
+          onSaveThoughts={saveThoughts}
         />
       )}
     </>

@@ -4,7 +4,7 @@ import type { Location } from "@/data/quizData";
 
 interface DualityCheckProps {
   location: Location;
-  onComplete: () => void;
+  onComplete: (goodThought: string, badThought: string) => void;
 }
 
 export function DualityCheck({ location, onComplete }: DualityCheckProps) {
@@ -122,8 +122,8 @@ export function DualityCheck({ location, onComplete }: DualityCheckProps) {
           <textarea
             value={goodThought}
             onChange={(e) => setGoodThought(e.target.value)}
-            placeholder="내 생각을 적어보세요..."
-            className="w-full p-3 rounded-xl border-2 border-mint/30 bg-white text-foreground text-sm resize-none focus:outline-none focus:border-mint"
+            placeholder="예: _____ 덕분에 _____ 할 수 있어서 편리해요"
+            className="w-full p-3 rounded-xl border-2 border-mint/30 bg-white text-foreground text-sm resize-none focus:outline-none focus:border-mint placeholder:text-muted-foreground/50"
             rows={2}
             maxLength={100}
           />
@@ -163,8 +163,8 @@ export function DualityCheck({ location, onComplete }: DualityCheckProps) {
           <textarea
             value={badThought}
             onChange={(e) => setBadThought(e.target.value)}
-            placeholder="내 생각을 적어보세요..."
-            className="w-full p-3 rounded-xl border-2 border-coral/30 bg-white text-foreground text-sm resize-none focus:outline-none focus:border-coral"
+            placeholder="예: _____ 때문에 _____하는 피해가 생길 수 있어요"
+            className="w-full p-3 rounded-xl border-2 border-coral/30 bg-white text-foreground text-sm resize-none focus:outline-none focus:border-coral placeholder:text-muted-foreground/50"
             rows={2}
             maxLength={100}
           />
@@ -198,10 +198,10 @@ export function DualityCheck({ location, onComplete }: DualityCheckProps) {
             </p>
           </div>
           <button
-            onClick={onComplete}
+            onClick={() => onComplete(goodThought, badThought)}
             className="btn-sunshine w-full text-lg flex items-center justify-center gap-2"
           >
-            퀴즈 시작하기! <ArrowRight className="w-5 h-5" />
+            사건 해결하러 가기! <ArrowRight className="w-5 h-5" />
           </button>
         </div>
       ) : (

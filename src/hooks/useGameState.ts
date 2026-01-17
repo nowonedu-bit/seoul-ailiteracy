@@ -1,5 +1,11 @@
 import { useState, useEffect } from "react";
 
+interface ThoughtRecord {
+  locationId: string;
+  goodThought: string;
+  badThought: string;
+}
+
 interface GameState {
   detectiveName: string;
   solvedLocations: string[];
@@ -10,6 +16,8 @@ interface GameState {
   // 수집 카운트
   goodCollected: number;
   badCollected: number;
+  // 학생들의 생각 기록
+  thoughts: ThoughtRecord[];
 }
 
 const STORAGE_KEY = "ai-detective-game";
@@ -45,7 +53,8 @@ export function useGameState() {
       quizStep: "intro",
       aiPromise: "",
       goodCollected: 0,
-      badCollected: 0
+      badCollected: 0,
+      thoughts: []
     };
   }
 
@@ -119,6 +128,13 @@ export function useGameState() {
     setGameState(prev => ({ ...prev, currentScreen: "certificate" }));
   };
 
+  const saveThoughts = (locationId: string, goodThought: string, badThought: string) => {
+    setGameState(prev => ({
+      ...prev,
+      thoughts: [...prev.thoughts.filter(t => t.locationId !== locationId), { locationId, goodThought, badThought }]
+    }));
+  };
+
   const resetGame = () => {
     localStorage.removeItem(STORAGE_KEY);
     setGameState(getInitialState());
@@ -141,6 +157,7 @@ export function useGameState() {
     goToFinal,
     setAiPromise,
     goToCertificate,
+    saveThoughts,
     resetGame,
     isLocationSolved,
     allLocationsSolved
