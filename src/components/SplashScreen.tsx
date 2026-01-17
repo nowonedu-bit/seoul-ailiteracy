@@ -67,7 +67,7 @@ export function SplashScreen({ onStart }: SplashScreenProps) {
           </div>
 
           <button type="submit" className="btn-sunshine w-full text-xl">
-            🕵️ 탐정 시작하기!
+            🕵️ 탐험 시작하기!
           </button>
         </form>
       </div>
