@@ -179,7 +179,7 @@ export function FinalQuiz({ onComplete, onBack, onGoHome }: FinalQuizProps) {
                   className={buttonClass}
                   disabled={showResult}
                 >
-                  {answer ? "⭕ O" : "❌ X"}
+                  {answer ? "⭕" : "❌"}
                 </button>
               );
             })}

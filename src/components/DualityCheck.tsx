@@ -122,7 +122,7 @@ export function DualityCheck({ location, onComplete }: DualityCheckProps) {
           <textarea
             value={goodThought}
             onChange={(e) => setGoodThought(e.target.value)}
-            placeholder="예: _____ 덕분에 _____ 할 수 있어서 편리해요"
+            placeholder={location.goodPlaceholder}
             className="w-full p-3 rounded-xl border-2 border-mint/30 bg-white text-foreground text-sm resize-none focus:outline-none focus:border-mint placeholder:text-muted-foreground/50"
             rows={2}
             maxLength={100}
@@ -163,7 +163,7 @@ export function DualityCheck({ location, onComplete }: DualityCheckProps) {
           <textarea
             value={badThought}
             onChange={(e) => setBadThought(e.target.value)}
-            placeholder="예: _____ 때문에 _____하는 피해가 생길 수 있어요"
+            placeholder={location.badPlaceholder}
             className="w-full p-3 rounded-xl border-2 border-coral/30 bg-white text-foreground text-sm resize-none focus:outline-none focus:border-coral placeholder:text-muted-foreground/50"
             rows={2}
             maxLength={100}

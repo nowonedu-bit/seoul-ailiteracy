@@ -91,14 +91,14 @@ export function Certificate({ detectiveName, aiPromise, thoughts, onReset }: Cer
           {thoughts.length > 0 && (
             <div className="bg-lavender/20 rounded-2xl p-3 mb-3">
               <p className="text-xs text-lavender-dark text-center mb-2 font-bold">📋 탐정 수첩 기록</p>
-              <div className="space-y-2 max-h-32 overflow-y-auto">
-                {thoughts.slice(0, 3).map((thought) => {
+              <div className="grid grid-cols-2 gap-2">
+                {thoughts.map((thought) => {
                   const loc = locations.find(l => l.id === thought.locationId);
                   return (
                     <div key={thought.locationId} className="text-xs bg-white/50 rounded-lg p-2">
-                      <p className="font-bold text-lavender-dark mb-1">{loc?.badgeEmoji} {loc?.name}</p>
-                      <p className="text-mint">💡 {thought.goodThought}</p>
-                      <p className="text-coral">⚠️ {thought.badThought}</p>
+                      <p className="font-bold text-lavender-dark mb-1 truncate">{loc?.badgeEmoji} {loc?.name}</p>
+                      <p className="text-mint truncate text-[10px]">💡 {thought.goodThought}</p>
+                      <p className="text-coral truncate text-[10px]">⚠️ {thought.badThought}</p>
                     </div>
                   );
                 })}
