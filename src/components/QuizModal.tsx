@@ -123,13 +123,15 @@ export function QuizModal({
   if (quizStep === "duality") {
     return (
       <div className="fixed inset-0 bg-foreground/50 backdrop-blur-sm flex flex-col items-center justify-center p-4 z-50">
-        <img src={logo} alt="AI 탐정단" className="h-16 md:h-20 object-contain mb-4" />
-        <div className="card-detective max-w-lg w-full animate-scale-in">
-          <div className="w-24 h-24 mx-auto mb-4 flex items-center justify-center">
-            <LocationIcon locationId={location.id} size="lg" className="w-20 h-20" />
+        <img src={logo} alt="AI 탐정단" className="h-12 md:h-16 object-contain mb-2 flex-shrink-0" />
+        <div className="card-detective max-w-lg w-full animate-scale-in overflow-hidden flex flex-col max-h-[80vh]">
+          <div className="overflow-y-auto flex-1 px-1">
+            <div className="w-20 h-20 mx-auto mb-3 flex items-center justify-center">
+              <LocationIcon locationId={location.id} size="lg" className="w-16 h-16" />
+            </div>
+            
+            <DualityCheck location={location} onComplete={onAdvance} />
           </div>
-          
-          <DualityCheck location={location} onComplete={onAdvance} />
         </div>
       </div>
     );
@@ -180,7 +182,7 @@ export function QuizModal({
         </div>
 
         <div className={`inline-block px-4 py-1 rounded-full text-sm font-bold mb-4 ${quizStep === "good" ? "bg-mint/20 text-mint" : "bg-coral/20 text-coral"}`}>
-          {quizStep === "good" ? "1단계: 좋은 점 찾기 😊" : "2단계: 위험한 점 찾기 ⚠️"}
+          {quizStep === "good" ? "🔎 단서 1: 이로운 점 찾기" : "🔎 단서 2: 해로운 점 찾기"}
         </div>
 
         <h3 className="font-display text-xl text-foreground mb-6">
