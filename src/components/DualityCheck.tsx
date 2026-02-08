@@ -14,7 +14,10 @@ export function DualityCheck({ location, onComplete }: DualityCheckProps) {
   const [showBadContent, setShowBadContent] = useState(false);
   const [goodThought, setGoodThought] = useState("");
   const [badThought, setBadThought] = useState("");
+  const [goodWarning, setGoodWarning] = useState(false);
+  const [badWarning, setBadWarning] = useState(false);
 
+  const MIN_LENGTH = 5;
   const bothChecked = goodChecked && badChecked;
 
   const handleGoodClick = () => {
@@ -26,15 +29,21 @@ export function DualityCheck({ location, onComplete }: DualityCheckProps) {
   };
 
   const handleGoodThoughtSubmit = () => {
-    if (goodThought.trim().length >= 1) {
-      setGoodChecked(true);
+    if (goodThought.trim().length < MIN_LENGTH) {
+      setGoodWarning(true);
+      return;
     }
+    setGoodWarning(false);
+    setGoodChecked(true);
   };
 
   const handleBadThoughtSubmit = () => {
-    if (badThought.trim().length >= 1) {
-      setBadChecked(true);
+    if (badThought.trim().length < MIN_LENGTH) {
+      setBadWarning(true);
+      return;
     }
+    setBadWarning(false);
+    setBadChecked(true);
   };
 
   return (
@@ -134,6 +143,11 @@ export function DualityCheck({ location, onComplete }: DualityCheckProps) {
           >
             ✅ 생각 완료!
           </button>
+          {goodWarning && (
+            <p className="mt-2 text-xs text-coral font-medium text-center animate-fade-in">
+              🤔 조금 더 생각해보는 게 어떨까요?
+            </p>
+          )}
         </div>
       )}
 
@@ -175,6 +189,11 @@ export function DualityCheck({ location, onComplete }: DualityCheckProps) {
           >
             ✅ 생각 완료!
           </button>
+          {badWarning && (
+            <p className="mt-2 text-xs text-coral font-medium text-center animate-fade-in">
+              🤔 조금 더 생각해보는 게 어떨까요?
+            </p>
+          )}
         </div>
       )}
 
@@ -194,7 +213,7 @@ export function DualityCheck({ location, onComplete }: DualityCheckProps) {
         <div className="animate-fade-in">
           <div className="bg-sunshine/20 rounded-2xl p-3 mb-4 text-center">
             <p className="text-sm text-sunshine-dark font-medium">
-              ✨ 훌륭해요! 두 가지 면을 모두 생각했어요!
+              ✨ 두 가지 면을 생각해 보았군요. 좀 더 알아볼까요?
             </p>
           </div>
           <button
