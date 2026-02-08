@@ -175,7 +175,7 @@ export const locations: Location[] = [
     },
     badgeEmoji: "📚",
     badgePosition: { row: 1, col: 0 },
-    position: { x: 50, y: 32 },
+    position: { x: 58, y: 32 },
     bgColor: "bg-lavender",
   },
   {
