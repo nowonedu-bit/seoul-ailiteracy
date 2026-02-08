@@ -45,7 +45,10 @@ export function MapScreen({
 
       <div className="max-w-4xl mx-auto px-4 py-4">
         <div className="card-detective">
-          <p className="text-sm text-muted-foreground mb-3 text-center font-medium">모은 배지</p>
+          <p className="text-base text-foreground mb-3 text-center font-bold flex items-center justify-center gap-2">
+            <Award className="w-5 h-5 text-sunshine-dark" />
+            🏅 모은 배지
+          </p>
           <div className="flex justify-center gap-3 flex-wrap">
             {locations.map((location) => {
               const isSolved = solvedLocations.includes(location.id);
@@ -127,8 +130,8 @@ export function MapScreen({
           onClick={onGoHome}
           className="mx-auto flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-sm"
         >
-          <Home className="w-4 h-4" />
-          처음으로 돌아가기
+          <Home className="w-5 h-5" />
+          🏠 처음으로 돌아가기
         </button>
       </div>
     </div>
